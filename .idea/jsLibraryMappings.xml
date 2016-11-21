@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{projet/node_modules}" />
+    <file url="file://$PROJECT_DIR$/.meteor/local/.build419022.build/programs/.build628986.server" libraries="{projet/.meteor/local/.build419022.build/programs/.build628986.server/node_modules}" />
+    <file url="file://$PROJECT_DIR$/.meteor/local/build/programs/server" libraries="{projet/.meteor/local/build/programs/server/node_modules}" />
   </component>
 </project>

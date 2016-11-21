@@ -2,12 +2,35 @@
 
 import React from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import documentEditor from '../../modules/document-editor.js';
+import { Bert } from 'meteor/themeteorchef:bert';
+import { upsertDocument } from '../../api/documents/methods.js';
+import { browserHistory } from 'react-router';
+import { Meteor } from 'meteor/meteor';
 
 export default class DocumentEditor extends React.Component {
   componentDidMount() {
-    documentEditor({ component: this });
     setTimeout(() => { document.querySelector('[name="title"]').focus(); }, 0);
+  }
+
+  handleAdd() {
+    const { doc } = this.props;
+    const upsert = {
+      title: document.querySelector('[name="title"]').value.trim(),
+      body: document.querySelector('[name="body"]').value.trim(),
+      owner: Meteor.userId(),
+      author: Meteor.user().profile.name.first + " " + Meteor.user().profile.name.last,
+      comments: [{comment: "Commentaire vide", owner: Meteor.userId(), author: Meteor.user().profile.name.first + " " + Meteor.user().profile.name.last}]
+    };
+
+    if (doc && doc._id) upsert._id = doc._id;
+    upsertDocument.call(upsert, (error, { insertedId }) => {
+      if (error) {
+          Bert.alert(error.reason, 'danger');
+      } else {
+        Bert.alert("Bien jouer", 'success');
+        browserHistory.push(`/annonces/${insertedId || doc._id}`);
+      }
+    });
   }
 
   render() {
@@ -17,25 +40,27 @@ export default class DocumentEditor extends React.Component {
       onSubmit={ event => event.preventDefault() }
     >
       <FormGroup>
-        <ControlLabel>Title</ControlLabel>
+        <ControlLabel>Titre</ControlLabel>
         <FormControl
+          id="document-title"
           type="text"
           name="title"
           defaultValue={ doc && doc.title }
-          placeholder="Oh, The Places You'll Go!"
+          placeholder="Titre de l'annonce"
         />
       </FormGroup>
       <FormGroup>
-        <ControlLabel>Body</ControlLabel>
+        <ControlLabel>Description</ControlLabel>
         <FormControl
+          id="document-body"
           componentClass="textarea"
           name="body"
           defaultValue={ doc && doc.body }
-          placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
+          placeholder="Description de l'annonce"
         />
       </FormGroup>
-      <Button type="submit" bsStyle="success">
-        { doc && doc._id ? 'Save Changes' : 'Add Document' }
+      <Button onClick={ () => this.handleAdd() } type="submit" bsStyle="success">
+        { doc && doc._id ? 'Sauvegarder' : 'Ajouter' }
       </Button>
     </form>);
   }

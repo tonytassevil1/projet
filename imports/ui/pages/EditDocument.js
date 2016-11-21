@@ -3,7 +3,7 @@ import DocumentEditor from '../components/DocumentEditor.js';
 
 const EditDocument = ({ doc }) => (
   <div className="EditDocument">
-    <h4 className="page-header">Editing "{ doc.title }"</h4>
+    <h4 className="page-header-new">Edition</h4>
     <DocumentEditor doc={ doc } />
   </div>
 );

@@ -9,6 +9,13 @@ const users = [{
     name: { first: 'Carl', last: 'Winslow' },
   },
   roles: ['admin'],
+}, {
+  email: 'admin@admin.co',
+  password: 'password',
+  profile: {
+    name: { first: 'Carl', last: 'Test' },
+  },
+  roles: ['admin'],
 }];
 
 users.forEach(({ email, password, profile, roles }) => {

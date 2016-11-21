@@ -11,15 +11,21 @@ export default class ResetPassword extends React.Component {
     event.preventDefault();
   }
 
+  handleChangePassword() {
+    //oldPassword
+    //Accounts.changePassword(oldPassword, newPassword, function () {
+
+    //});
+  }
+
   render() {
     return (
       <div className="ResetPassword">
         <Row>
           <Col xs={ 12 } sm={ 6 } md={ 4 }>
-            <h4 className="page-header">Reset Password</h4>
+            <h4 className="page-header">Changer de mot de passe</h4>
             <Alert bsStyle="info">
-              To reset your password, enter a new one below. You will be logged in
-    with your new password.
+              Pour changer de mot de passe, entrer un nouveau mot de passe. Vous vous connecterez avec votre nouveau mot de passe.
             </Alert>
             <form
               ref={ form => (this.resetPasswordForm = form) }
@@ -27,24 +33,24 @@ export default class ResetPassword extends React.Component {
               onSubmit={ this.handleSubmit }
             >
               <FormGroup>
-                <ControlLabel>New Password</ControlLabel>
+                <ControlLabel>Nouveau mot de passe</ControlLabel>
                 <FormControl
                   type="password"
                   ref="newPassword"
                   name="newPassword"
-                  placeholder="New Password"
+                  placeholder="Nouveau mot de passe"
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel>Repeat New Password</ControlLabel>
+                <ControlLabel>Repéter le nouveau mot de passe</ControlLabel>
                 <FormControl
                   type="password"
                   ref="repeatNewPassword"
                   name="repeatNewPassword"
-                  placeholder="Repeat New Password"
+                  placeholder="Repéter le nouveau mot de passe"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Reset Password &amp; Login</Button>
+              <Button onClick={ () => this.handleChangePassword() } type="submit" bsStyle="success">Reset Password &amp; Login</Button>
             </form>
           </Col>
         </Row>
