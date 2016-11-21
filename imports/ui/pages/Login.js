@@ -17,14 +17,14 @@ export default class Login extends React.Component {
       <div className="Login">
         <Row>
           <Col xs={ 12 } sm={ 6 } md={ 4 }>
-            <h4 className="page-header">Login</h4>
+            <h4 className="page-header-new">Se connecter</h4>
             <form
               ref={ form => (this.loginForm = form) }
               className="login"
               onSubmit={ this.handleSubmit }
             >
               <FormGroup>
-                <ControlLabel>Email Address</ControlLabel>
+                <ControlLabel>Adresse e-mail</ControlLabel>
                 <FormControl
                   type="email"
                   ref="emailAddress"
@@ -34,8 +34,7 @@ export default class Login extends React.Component {
               </FormGroup>
               <FormGroup>
                 <ControlLabel>
-                  <span className="pull-left">Password</span>
-                  <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
+                  <span className="pull-left">Mot de passe</span>
                 </ControlLabel>
                 <FormControl
                   type="password"
@@ -44,7 +43,7 @@ export default class Login extends React.Component {
                   placeholder="Password"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Login</Button>
+              <Button type="submit" bsStyle="success">Connexion</Button>
             </form>
           </Col>
         </Row>
