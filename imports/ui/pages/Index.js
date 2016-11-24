@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Index = () => (
   <div className="Index">
     <Jumbotron className="text-center">
-      <h2>Bienvenu !</h2>
+      <h2>Bienvenue !</h2>
       <p>Ajouter ou consulter des annonces en cliquant sur les liens ci-dessous.</p>
       <p>
         <Link className="btn btn-info" href="/annonces/new" role="button">Ajouter</Link>

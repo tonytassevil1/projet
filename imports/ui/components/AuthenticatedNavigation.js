@@ -21,7 +21,6 @@ const AuthenticatedNavigation = () => (
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">
-        <MenuItem eventKey={ 3.1 } href="/reset-password/reset" >Changer de mot de passe</MenuItem>
         <MenuItem eventKey={ 3.1 } onClick={ handleLogout }>Déconnexion</MenuItem>
       </NavDropdown>
     </Nav>
