@@ -52,7 +52,7 @@ export default class Signup extends React.Component {
                   type="text"
                   ref="emailAddress"
                   name="emailAddress"
-                  placeholder="Email Address"
+                  placeholder="Adresse e-mail"
                 />
               </FormGroup>
               <FormGroup>
@@ -61,7 +61,7 @@ export default class Signup extends React.Component {
                   type="password"
                   ref="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
                 />
               </FormGroup>
               <Button type="submit" bsStyle="success">S'inscrire</Button>
