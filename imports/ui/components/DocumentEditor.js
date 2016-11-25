@@ -27,7 +27,7 @@ export default class DocumentEditor extends React.Component {
       if (error) {
           Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert("Bien jouer", 'success');
+        Bert.alert("Sauvegardée", 'success');
         browserHistory.push(`/annonces/${insertedId || doc._id}`);
       }
     });

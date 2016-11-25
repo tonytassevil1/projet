@@ -15,7 +15,7 @@ const login = () => {
     if (error) {
       Bert.alert(error.reason, 'warning');
     } else {
-      Bert.alert('Logged in!', 'success');
+      Bert.alert('Connexion réussie !', 'success');
 
       const { location } = component.props;
       if (location.state && location.state.nextPathname) {
@@ -40,11 +40,11 @@ const validate = () => {
     },
     messages: {
       emailAddress: {
-        required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        required: "Veuillez saisir votre adresse e-mail.",
+        email: "Cette adresse e-mail n'est pas valide.",
       },
       password: {
-        required: 'Need a password here.',
+        required: "Veuillez saisir votre mot de passe.",
       },
     },
     submitHandler() { login(); },

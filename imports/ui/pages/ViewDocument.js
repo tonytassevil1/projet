@@ -61,8 +61,8 @@ const ViewDocument = ({ doc }) => (
     <label>Titre</label>
     <ButtonToolbar className={ doc.owner == Meteor.userId() ? 'pull-right' : 'pull-right hidden'}>
       <ButtonGroup bsSize="small">
-        <Button href={`/annonces/${doc._id}/edit`}>Edit</Button>
-        <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
+        <Button href={`/annonces/${doc._id}/edit`}>Editer</Button>
+        <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Supprimer</Button>
       </ButtonGroup>
     </ButtonToolbar>
     <div className="page-header clearfix">
